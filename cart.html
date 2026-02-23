@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tommy Hilfiger | Cart</title>
+</head>
+<body style="margin:0; font-family:Arial, sans-serif; background:#ffffff;" onload="displayCart()">
+
+<div style="background:#0A1F44; padding:20px 60px; display:flex; justify-content:space-between; align-items:center;">
+    <div style="color:white; font-size:26px; font-weight:bold; letter-spacing:3px;">
+        TOMMY HILFIGER
+    </div>
+    <div>
+        <a href="products.html" style="color:white; text-decoration:none; margin-right:30px;">Shop</a>
+        <a href="cart.html" style="color:white; text-decoration:none;">Cart</a>
+    </div>
+</div>
+
+
+<div style="padding:50px 60px;">
+    <h2 style="color:#0A1F44;">Your Shopping Bag</h2>
+
+    <table width="100%" cellpadding="15" style="margin-top:30px; border-collapse:collapse;">
+        <thead>
+            <tr style="border-bottom:2px solid #ddd;">
+                <th align="left">Product</th>
+                <th align="left">Price</th>
+                <th align="left">Action</th>
+            </tr>
+        </thead>
+        <tbody id="cartItems"></tbody>
+    </table>
+
+    <h3 style="margin-top:30px;">Total: $<span id="totalPrice">0</span></h3>
+
+    <button onclick="checkout()" 
+        style="margin-top:20px; background:#C8102E; color:white; padding:12px 25px; border:none;">
+        Checkout
+    </button>
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0A1F44; color:white; text-align:center; padding:25px; margin-top:60px;">
+    © 2026 Tommy Hilfiger
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function displayCart(){
+    let table = document.getElementById("cartItems");
+    let total = 0;
+    table.innerHTML = "";
+
+    cart.forEach((item,index)=>{
+        total += item.price;
+        table.innerHTML += `
+            <tr style="border-bottom:1px solid #eee;">
+                <td>${item.name}</td>
+                <td>$${item.price}</td>
+                <td>
+                    <button onclick="removeItem(${index})"
+                        style="background:#0A1F44; color:white; border:none; padding:5px 10px;">
+                        Remove
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("totalPrice").innerText = total;
+}
+
+function removeItem(index){
+    cart.splice(index,1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+}
+
+function checkout(){
+    alert("Thank you for choosing Tommy Hilfiger.");
+    localStorage.removeItem("cart");
+    window.location.href="cart.html";
+}
+
+function checkout(){
+    if(cart.length === 0){
+        alert("Your shopping bag is currently empty. Please add items before proceeding to checkout.");
+        return;
+    }
+
+    alert("Your order has been successfully placed.\n\nThank you for shopping with Tommy Hilfiger.\nA confirmation of your purchase has been processed.");
+
+    localStorage.removeItem("cart");
+    window.location.href="products.html";
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
