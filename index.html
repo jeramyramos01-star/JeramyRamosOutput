@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <title>Tommy Hilfiger</title>
 </head>
 <body style="margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f7f8fa; color: #111; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
 
-  <nav style="background-color: #002366; padding: 1rem 3rem; display: flex; justify-content: flex-start; align-items: center; box-shadow: 0 3px 10px rgba(0, 35, 102, 0.3);">
+  <nav style="background-color: #002366; padding: 1rem 3rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 3px 10px rgba(0, 35, 102, 0.3);">
+    
     <div class="logo">
       <img src="main/tommy2.jpg" alt="Tommy Hilfiger Logo" 
         style="height: 50px; filter: brightness(100%); cursor: pointer; transition: filter 0.3s ease;" 
         onmouseover="this.style.filter='brightness(85%)';" 
         onmouseout="this.style.filter='brightness(100%)';" />
     </div>
+
+    <!-- Login & Register Buttons -->
+    <div>
+      <a href="login.html">
+        <button style="margin-right:10px; background:white; color:#002366; border:none; padding:0.6rem 1.2rem; font-weight:700; border-radius:20px; cursor:pointer;">
+          Login
+        </button>
+      </a>
+      <a href="register.html">
+        <button style="background:#e4002b; color:white; border:none; padding:0.6rem 1.2rem; font-weight:700; border-radius:20px; cursor:pointer;">
+          Register
+        </button>
+      </a>
+    </div>
+
   </nav>
 
   <section class="hero" style="background: linear-gradient(90deg, #002366 60%, #e4002b 40%); color: white; height: 90vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 0 1rem;">
     <div class="hero-content" style="max-width: 600px;">
       <h1 style="font-size:3rem; font-weight:900; letter-spacing:3px; margin-bottom:1rem; text-transform:uppercase; text-shadow: 1px 2px 6px rgba(0,0,0,0.3);">Welcome to Tommy Hilfiger</h1>
-      <a href="products.html">
-        <button style="background-color: white; color: #002366; border: none; padding: 1rem 2.5rem; font-size: 1.2rem; font-weight: 700; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 25px rgba(255, 255, 255, 0.6); transition: background-color 0.3s ease, color 0.3s ease;"
-          onmouseover="this.style.backgroundColor='#e4002b'; this.style.color='white'; this.style.boxShadow='0 10px 25px rgba(228, 0, 43, 0.8)';" 
-          onmouseout="this.style.backgroundColor='white'; this.style.color='#002366'; this.style.boxShadow='0 10px 25px rgba(255, 255, 255, 0.6)';"
-        >Shop Now</button>
-      </a>
+      
+
+      <button onclick="checkAccount()" 
+        style="background-color: white; color: #002366; border: none; padding: 1rem 2.5rem; font-size: 1.2rem; font-weight: 700; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 25px rgba(255, 255, 255, 0.6); transition: background-color 0.3s ease, color 0.3s ease;"
+        onmouseover="this.style.backgroundColor='#e4002b'; this.style.color='white'; this.style.boxShadow='0 10px 25px rgba(228, 0, 43, 0.8)';" 
+        onmouseout="this.style.backgroundColor='white'; this.style.color='#002366'; this.style.boxShadow='0 10px 25px rgba(255, 255, 255, 0.6)';"
+      >Shop Now</button>
+
     </div>
   </section>
 
   <div class="container" style="max-width: 1100px; margin: 3rem auto 6rem; padding: 0 1.5rem;">
+    <h2 style="text-align: center; font-size: 2.8rem; font-weight: 900; color: #002366; margin-bottom: 3rem; letter-spacing: 2px;">Featured Products</h2>
+    <div class="products" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem;">
+  
+      <div class="container" style="max-width: 1100px; margin: 3rem auto 6rem; padding: 0 1.5rem;">
     <h2 style="text-align: center; font-size: 2.8rem; font-weight: 900; color: #002366; margin-bottom: 3rem; letter-spacing: 2px;">Featured Products</h2>
     <div class="products" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem;">
 
@@ -70,6 +91,7 @@
         >Add to Cart</button>
       </div>
 
+      
     </div>
   </div>
 
@@ -81,6 +103,38 @@
     function addToCart(price) {
       alert('Added to cart: $' + price);
     }
+
+    function checkAccount() {
+      if(localStorage.getItem("userLoggedIn") === "true") {
+        window.location.href = "products.html";
+      } else {
+        alert("You must login or register first.");
+        window.location.href = "login.html";
+      }
+    }
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
