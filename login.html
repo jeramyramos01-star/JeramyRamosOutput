@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+</head>
+<body style="font-family: Arial, sans-serif; background: #fff; color: #000; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+
+<div style="border: 2px solid #002366; padding: 40px 50px; max-width: 350px; width: 100%; box-sizing: border-box; text-align: center; background: #fff;">
+    <h2 style="color: #002366; font-weight: 700; letter-spacing: 2px; margin-bottom: 30px; text-transform: uppercase;">Login</h2>
+
+    <div id="warning" style="background-color: #d8000c; color: white; padding: 10px; margin-bottom: 20px; font-weight: 600; display: none;">
+        Your username or password are incorrect.
+    </div>
+
+    <label for="loginUsername" style="display: block; text-align: left; margin-bottom: 6px; font-weight: 600; color: #000;">Username</label>
+    <input type="text" id="loginUsername" autocomplete="username" style="width: 100%; padding: 10px 12px; margin-bottom: 20px; border: 1.5px solid #002366; font-size: 16px; letter-spacing: 1px; box-sizing: border-box;">
+
+    <label for="loginPassword" style="display: block; text-align: left; margin-bottom: 6px; font-weight: 600; color: #000;">Password</label>
+    <input type="password" id="loginPassword" autocomplete="current-password" style="width: 100%; padding: 10px 12px; margin-bottom: 20px; border: 1.5px solid #002366; font-size: 16px; letter-spacing: 1px; box-sizing: border-box;">
+
+    <button onclick="login()" style="width: 100%; padding: 12px 0; background: #002366; color: white; font-weight: 700; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 16px;">Login</button>
+</div>
+
+
+
+<script>
+    function login() {
+        var savedUsername = localStorage.getItem("username");
+        var savedPassword = localStorage.getItem("password");
+
+        var inputUsername = document.getElementById("loginUsername").value;
+        var inputPassword = document.getElementById("loginPassword").value;
+
+        if (inputUsername == savedUsername && inputPassword == savedPassword) {
+            localStorage.setItem("userLoggedIn", "true"); // Set login flag
+            window.location.href = "index.html";
+        } else {
+            document.getElementById("warning").style.display = "block";
+        }
+    }
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
