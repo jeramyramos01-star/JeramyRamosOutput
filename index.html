@@ -5,6 +5,32 @@
 </head>
 <body style="margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f7f8fa; color: #111; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
 
+  <nav style="background-color: #002366; padding: 1rem 3rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 3px 10px rgba(0, 35, 102, 0.3);">
+    
+    <div class="logo" style="cursor: pointer;">
+      <img src="main/tommy2.jpg" alt="Tommy Hilfiger Logo" 
+        style="height: 50px; filter: brightness(100%); transition: filter 0.3s ease;" 
+        onmouseover="this.style.filter='brightness(85%)';" 
+        onmouseout="this.style.filter='brightness(100%)';"
+      />
+    </div>
+    
+    <div>
+      <a href="login.html">
+        <button style="margin-right:10px; background:white; color:#002366; border:none; padding:0.6rem 1.2rem; font-weight:700; border-radius:20px; cursor:pointer;">
+          Login
+        </button>
+      </a>
+      <a href="register.html">
+        <button style="background:#e4002b; color:white; border:none; padding:0.6rem 1.2rem; font-weight:700; border-radius:20px; cursor:pointer;">
+          Register
+        </button>
+      </a>
+    </div>
+    
+  </nav>
+
+
   <section class="hero" style="background: linear-gradient(90deg, #002366 60%, #e4002b 40%); color: white; height: 90vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 0 1rem;">
     <div class="hero-content" style="max-width: 600px;">
       <h1 style="font-size:3rem; font-weight:900; letter-spacing:3px; margin-bottom:1rem; text-transform:uppercase; text-shadow: 1px 2px 6px rgba(0,0,0,0.3);">Welcome to Tommy Hilfiger</h1>
@@ -71,14 +97,11 @@
       </div>
 
       <nav style="background-color: #002366; padding: 1rem 3rem; display: flex; justify-content: flex-end; align-items: center; box-shadow: 0 3px 10px rgba(0, 35, 102, 0.3);">
-Change justify-content: space-between; to justify-content: flex-end; to push content to the right.
-
-Also add margin-left: auto; to the div holding the buttons (<div> right after logo) to push the buttons to the right side:
 
 <div style="margin-left: auto;">
 
 </div>
-Final code snippet for the nav:
+
 
 <nav style="background-color: #002366; padding: 1rem 3rem; display: flex; justify-content: flex-start; align-items: center; box-shadow: 0 3px 10px rgba(0, 35, 102, 0.3);">
   
@@ -129,31 +152,3 @@ Final code snippet for the nav:
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
